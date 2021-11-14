@@ -5,12 +5,13 @@
 	<script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 	</script>
-
-	<style>
-		table {
+<style>
+	table {
 			font-family: arial, sans-serif;
 			border-collapse: collapse;
 			width: 50%;
+			height: 10%;
+			overflow: visible;
 		}
 		
 		td,
@@ -23,10 +24,18 @@
 		h1 {
 			color: green;
 		}
+		
+		.ScrollStyle
+{
+    max-height: 800px;
+    overflow-y: auto;
+}
 	</style>
 </head>
 
 <body>
+
+}
 	<center>
 		<h1>FIITJEE MUMBAI</h1>
 		<h3>
@@ -38,14 +47,18 @@
 		</b>
 		<br>
 		<br>
-		<table>
+	
+<div class="ScrollStyle">
+
+	
+<table >
 			
 			<tbody id="geeks">
-<tr height=28 style='height:21.0pt'>
+<tr height=28 style='height:21.0pt' border:none>
   <td height=28 class=xl6326191 width=59 style='height:21.0pt;width:44pt;
   font-size:8.0pt;color:white;font-weight:700;text-decoration:none;text-underline-style:
-  none;text-line-through:none;font-family:Tahoma;border-top:.5pt solid #8EAADC;
-  border-right:none;border-bottom:.5pt solid #8EAADC;border-left:.5pt solid #8EAADC;
+  none;text-line-through:none;font-family:Tahoma;border-top:.0pt solid #8EAADC;
+  border-right:none;border-bottom:.0pt solid #8EAADC;border-left:.0pt solid #8EAADC;
   background:#4472C4;mso-pattern:#4472C4 none'>Subject</td>
   <td class=xl6326191 width=95 style='width:71pt;font-size:8.0pt;color:white;
   font-weight:700;text-decoration:none;text-underline-style:none;text-line-through:
@@ -59,6 +72,7 @@
   border-right:.5pt solid #8EAADC;border-bottom:.5pt solid #8EAADC;border-left:
   none;background:#4472C4;mso-pattern:#4472C4 none'>Syllabus Assembly</td>
  </tr>
+
  <tr height=28 style='height:21.0pt'>
   <td height=28 class=xl6526191 style='height:21.0pt;font-size:8.0pt;
   color:black;font-weight:400;text-decoration:none;text-underline-style:none;
@@ -4486,7 +4500,7 @@
  </tr>
 			</tbody>
 		</table>
-
+</div>
 		<script>
 			$(document).ready(function() {
 				$("#gfg").on("keyup", function() {
