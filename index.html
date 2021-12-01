@@ -5,6 +5,53 @@
 	<script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 	</script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlSubject,#ddlModule").on("change", function () {
+            var subject = $('#ddlSubject').find("option:selected").val();
+            var module = $('#ddlModule').find("option:selected").val();
+            SearchData(subject, module)
+        });
+    });
+    function SearchData(subject, module) {
+        if (subject.toUpperCase() == 'ALL' && module.toUpperCase() == 'ALL') {
+            $('#table11 tbody tr').show();
+        } else {
+            $('#table11 tbody tr:has(td)').each(function () {
+                var rowSubject = $.trim($(this).find('td:eq(0)').text());
+                var rowModule = $.trim($(this).find('td:eq(1)').text());
+                if (subject.toUpperCase() != 'ALL' && module.toUpperCase() != 'ALL') {
+                    if (rowSubject.toUpperCase() == subject.toUpperCase() && rowModule == module) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                } else if ($(this).find('td:eq(0)').text() != '' || $(this).find('td:eq(0)').text() != '') {
+                    if (subject != 'all') {
+                        if (rowSubject.toUpperCase() == subject.toUpperCase()) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    }
+                    if (module != 'all') {
+                        if (rowModule == module) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    }
+                }
+ 
+            });
+        }
+    }
+</script>
+
 <style>
 	table {
 			font-family: arial, sans-serif;
@@ -38,16 +85,30 @@ thead {
 </head>
 
 <body>
+<center>
 
-}
-	<center>
-		<h1>FIITJEE MUMBAI</h1>
+	<h1>FIITJEE MUMBAI</h1>
 		<h3>
 		JEE 2022 - CT Scan Syllabus
 		</h3>
 		<b>Search For Module Syllabus:
 		<input id="gfg" type="text"
 				placeholder="Search here">
+
+		<h4> OR </h4>
+		<select class="cl_subject" id="ddlSubject">
+    <option value="all">Select subject </option>
+    <option value="PH">PH</option>
+    <option value="CH">CH</option>
+    <option value="MT">MT</option>
+
+</select>
+<select class="cl_module" id="ddlModule">
+    <option value="all">Select module </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>		
 		</b>
 		<br>
 		<br>
@@ -55,7 +116,7 @@ thead {
 <div class="ScrollStyle">
 
 	
-<table >
+<table id="table11" border="1">
 			
 			<tbody id="geeks">
 
